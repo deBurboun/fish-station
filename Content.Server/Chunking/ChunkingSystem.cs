@@ -71,6 +71,8 @@ public sealed class ChunkingSystem : EntitySystem
             return;
 
         var pos = _transform.GetWorldPosition(xform);
+        // TEST: Simulate huge position to trigger overflow
+        pos = new Vector2(1e10f, 0f);
         var bounds = _baseViewBounds.Translated(pos).Enlarged(viewEnlargement);
 
         var state = new QueryState(chunks, indexPool, chunkSize, bounds, _transform, EntityManager);
@@ -125,4 +127,3 @@ public sealed class ChunkingSystem : EntitySystem
         }
     }
 }
-
