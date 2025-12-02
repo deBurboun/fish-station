@@ -66,7 +66,7 @@
             Warden: [ 1, 1 ]
             SeniorOfficer: [ 1, 1 ]
             Detective: [ 2, 2 ]
-            Brigmedic: [ 2, 2 ]
+            Brigmedic: [ 1, 1 ]
             SecurityPilot: [ 2, 2 ]
             SecurityOfficer: [ 6, 6 ]
             SecurityCadet: [ 5, 5 ]
