@@ -189,12 +189,25 @@
     stock: 5
 
 # Лазеры:
+
+- type: listing
+  id: ERTUplinkWeaponANNIHILATOR
+  productEntity: WeaponANNIHILATOR
+  icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: pulse-r }
+  cost:
+    Bluecrystal: 200
+  categories:
+  - NTLasers
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+    
 - type: listing
   id: ERTUplinkWeaponWeaponPulseRifle
   productEntity: WeaponPulseRifle
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: pulse-r }
   cost:
-    Bluecrystal: 35
+    Bluecrystal: 100
   categories:
   - NTLasers
   conditions:
@@ -230,7 +243,7 @@
   productEntity: WeaponPulseCarbine
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: pulse-c }
   cost:
-    Bluecrystal: 17
+    Bluecrystal: 20 # fish-edit
   categories:
     - NTLasers
   conditions:
@@ -1353,7 +1366,7 @@
   icon: { sprite: _Sunrise/Interface/Misc/nt_icons.rsi, state: mech_seraph }
   productEntity: CrateCommandSeraphBundle
   cost:
-    Bluecrystal: 220
+    Bluecrystal: 200
   categories:
   - NTMechs
   conditions:

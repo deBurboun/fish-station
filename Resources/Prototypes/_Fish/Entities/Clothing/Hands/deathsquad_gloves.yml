@@ -1,0 +1,35 @@
+- type: entity
+  parent: [BaseClothingHandsPowerGlovesUplinkNTERT, BaseCentcommContraband]
+  id: ClothingHandsGlovesDeathSquad
+  name: death squad combat gloves
+  description: Elite tactical gloves with enhanced striking power. These gloves are fireproof, shock resistant, and significantly amplify melee damage.
+  suffix: Uplink
+  components:
+  - type: Sprite
+    sprite: _Fish/Clothing/Hands/Gloves/deathsquad.rsi
+  - type: Clothing
+    sprite: _Fish/Clothing/Hands/Gloves/deathsquad.rsi
+  - type: Store
+    balance:
+      Bluecrystal: 210
+      Crystallite: 210
+  - type: Tag
+    tags:
+    - NTUplink
+    - WhitelistChameleon
+  - type: UseDelay
+    delay: 6
+  - type: UseDelayOnMeleeHit
+  - type: MeleeThrowOnHit
+    stunTime: 1.5
+    activateOnThrown: true
+    distance: 5
+    speed: 5
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 10
+        Structural: 10
+    bluntStaminaDamageFactor: 5.0
+    animation: WeaponArcFist
