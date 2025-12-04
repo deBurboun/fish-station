@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/17/2025 21:37:43
-  entityCount: 132
+  time: 12/04/2025 19:16:41
+  entityCount: 136
 maps: []
 grids:
 - 1
@@ -29,7 +29,7 @@ entities:
       name: NT-SEC-M «Песочная сойка»
     - type: Transform
       pos: -0.46875,-0.53125
-      parent: invalid
+      parent: 38
     - type: MapGrid
       chunks:
         0,0:
@@ -153,7 +153,8 @@ entities:
             0: 13105
             1: 32904
           0,-1:
-            0: 30464
+            2: 256
+            0: 30208
             1: 135
           -1,0:
             0: 34944
@@ -197,9 +198,34 @@ entities:
           - 0
           - 0
           - 0
+        - volume: 2500
+          temperature: 293.1495
+          moles:
+          - 20.078888
+          - 75.53487
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+  - uid: 38
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: GridTree
+    - type: Broadphase
+    - type: OccluderTree
 - proto: AirAlarm
   entities:
   - uid: 2
@@ -393,6 +419,11 @@ entities:
     - type: Transform
       pos: -0.5,-2.5
       parent: 1
+  - uid: 135
+    components:
+    - type: Transform
+      pos: -1.5,1.5
+      parent: 1
 - proto: CableMV
   entities:
   - uid: 34
@@ -419,24 +450,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,1.5
       parent: 1
-- proto: ClosetWall
-  entities:
-  - uid: 38
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,-2.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 39
-          - 40
-    - type: Fixtures
-      fixtures: {}
 - proto: ClosetWallEmergencyFilledRandom
   entities:
   - uid: 41
@@ -445,6 +458,34 @@ entities:
       rot: 3.141592653589793 rad
       pos: 1.5,0.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
+- proto: ClosetWallOrange
+  entities:
+  - uid: 39
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,-2.5
+      parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.1465
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: Fixtures
       fixtures: {}
 - proto: ComputerShuttle
@@ -651,6 +692,22 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 2
+- proto: GeneratorRTG
+  entities:
+  - uid: 40
+    components:
+    - type: Transform
+      pos: -0.5,1.5
+      parent: 1
+    - type: CMExplosionEffect
+- proto: GeneratorWallmountAPU
+  entities:
+  - uid: 75
+    components:
+    - type: Transform
+      pos: -1.5,1.5
+      parent: 1
+    - type: CMExplosionEffect
 - proto: GravityGeneratorMini
   entities:
   - uid: 64
@@ -714,21 +771,24 @@ entities:
     - type: Transform
       pos: 2.5,-1.5
       parent: 1
-- proto: PortableGeneratorPacman
+- proto: PowerCageHigh
   entities:
-  - uid: 74
+  - uid: 82
     components:
     - type: Transform
-      pos: -0.5,1.5
-      parent: 1
+      parent: 81
+    - type: Physics
+      canCollide: False
+    - type: CMExplosionEffect
+  - uid: 134
+    components:
+    - type: Transform
+      parent: 133
+    - type: Physics
+      canCollide: False
+    - type: CMExplosionEffect
 - proto: PowerCellHigh
   entities:
-  - uid: 75
-    components:
-    - type: Transform
-      pos: -0.40033603,2.4044447
-      parent: 1
-    - type: CMExplosionEffect
   - uid: 76
     components:
     - type: Transform
@@ -763,36 +823,48 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,2.5
       parent: 1
-- proto: SheetPlasma
-  entities:
-  - uid: 39
-    components:
-    - type: Transform
-      parent: 38
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 40
-    components:
-    - type: Transform
-      parent: 38
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ShuttleGunSvalinnMachineGun
   entities:
   - uid: 81
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 1.5,3.5
+      pos: -0.5,3.5
       parent: 1
-  - uid: 82
+    - type: ContainerContainer
+      containers:
+        machine_board: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        machine_parts: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        cell_slot: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 82
+  - uid: 133
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -0.5,3.5
+      pos: 1.5,3.5
       parent: 1
+    - type: ContainerContainer
+      containers:
+        machine_board: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        machine_parts: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        cell_slot: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 134
 - proto: ShuttleWindow
   entities:
   - uid: 83
@@ -846,9 +918,11 @@ entities:
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        82:
+        81:
         - - Pressed
           - Toggle
+        - - Pressed
+          - Trigger
     - type: Fixtures
       fixtures: {}
   - uid: 91
@@ -858,9 +932,11 @@ entities:
       parent: 1
     - type: DeviceLinkSource
       linkedPorts:
-        81:
+        133:
         - - Pressed
           - Toggle
+        - - Pressed
+          - Trigger
     - type: Fixtures
       fixtures: {}
 - proto: SubstationWallBasic
@@ -1105,8 +1181,24 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -1.5,-1.5
       parent: 1
+  - uid: 136
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,1.5
+      parent: 1
+    - type: AccessReader
+      access:
+      - - Engineering
+      - - Security
 - proto: WindowReinforcedDirectional
   entities:
+  - uid: 74
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,1.5
+      parent: 1
   - uid: 131
     components:
     - type: Transform
